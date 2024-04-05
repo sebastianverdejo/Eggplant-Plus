@@ -1,0 +1,9 @@
+{
+  "extensionId": {
+    "name": "Multiplayer_GMnet_ENGINE",
+    "path": "extensions/Multiplayer_GMnet_ENGINE/Multiplayer_GMnet_ENGINE.yy"
+  },
+  "resourceVersion": "1.0",
+  "resourceType": "GMExtensionConfigSet",
+  "configurables": null
+}
