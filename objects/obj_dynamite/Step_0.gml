@@ -13,7 +13,7 @@ if obj_explosion != obj_dynamiteexplosion_boss && obj_explosion != obj_canonexpl
 }
 if (place_meeting(x + hsp, y, obj_solid) || place_meeting(x + hsp, y + vsp, obj_destructibles) || (obj_explosion != obj_canonexplosion && place_meeting(x, y, obj_baddie)))
 	image_xscale *= -1;
-if (place_meeting(x + hsp, y + vsp, obj_destructibles) || place_meeting(x + hsp, y + vsp, obj_ratblock) || place_meeting(x + hsp, y + vsp, obj_ratblock1x1) || place_meeting(x + hsp, y + vsp, obj_rattumble) || place_meeting(x + hsp, y + vsp, obj_rattumble_big) || place_meeting(x + hsp, y + vsp, obj_metalblock) || (obj_explosion != obj_canonexplosion && place_meeting(x, y, obj_baddie)))
+if (place_meeting(x + hsp, y + vsp, obj_destructibles) || place_meeting(x + hsp, y + vsp, obj_ratblock) || place_meeting(x + hsp, y + vsp, obj_ratblock1x1) || place_meeting(x + hsp, y + vsp, obj_metalblock) || place_meeting(x + hsp, y + vsp, obj_iceblock_breakable) || (obj_explosion != obj_canonexplosion && place_meeting(x, y, obj_baddie)))
 {
 	instance_destroy();
 	instance_create(x, y, obj_explosion);

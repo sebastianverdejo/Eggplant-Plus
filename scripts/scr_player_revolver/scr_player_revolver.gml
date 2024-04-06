@@ -24,6 +24,15 @@ function scr_player_revolver()
 			image_index = spr_cheesebulletend
 		}
 	}
+	if ((sprite_index == spr_playerV_revolverhold || sprite_index == spr_playerV_airrevolverstart || sprite_index == spr_playerV_revolverstart) && key_down)
+	{
+		if grounded
+			sprite_index = spr_playerV_divekickstart;
+		else
+			sprite_index = spr_playerV_divekick;
+		image_index = 0;
+		state = states.tumble
+	}
 	if (floor(image_index) == image_number - 1 && sprite_index == spr_playerV_revolvershoot)
 	{
 		image_index = 0;

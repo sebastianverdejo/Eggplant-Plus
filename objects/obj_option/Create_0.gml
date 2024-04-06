@@ -511,7 +511,7 @@ add_option_press(modded_menu, 0, "option_back", function()
 {
 	menu_goto(menus.options);
 });
-add_option_toggle(modded_menu, 1, "option_heatmeter", function(val)
+add_option_toggle(modded_menu, 1, string("HEATMETER"), function(val)
 {
 	ini_open_from_string(obj_savesystem.ini_str_options);
 	ini_write_real("Option", "heatmeter", val);
@@ -519,11 +519,18 @@ add_option_toggle(modded_menu, 1, "option_heatmeter", function(val)
 	global.option_heatmeter = val;
 }).value = global.option_heatmeter;
 
-
-add_option_multiple(modded_menu, 2, "option_doublegrab", [create_option_value("option_doublegrab_none", 0), create_option_value("option_doublegrab_chainsaw", 1)], function(val)
+add_option_toggle(modded_menu, 2, string("CHAINSAW TOGGLE"), function(val)
 {
 	ini_open_from_string(obj_savesystem.ini_str_options);
-	ini_write_real("Option", "option_doublegrab", val);
+	ini_write_real("Option", "chainsaw", val);
+	obj_savesystem.ini_str_options = ini_close();
+	global.option_chainsaw = val;
+}).value = global.option_chainsaw;
+
+add_option_multiple(modded_menu, 3, string("DOUBLE GRAB"), [create_option_value("option_doublegrab_none", 0), create_option_value("option_doublegrab_chainsaw", 1)], function(val)
+{
+	ini_open_from_string(obj_savesystem.ini_str_options);
+	ini_write_real("Option", "doublegrab", val);
 	obj_savesystem.ini_str_options = ini_close();
 	global.option_doublegrab = val;
 }).value = global.option_doublegrab;
