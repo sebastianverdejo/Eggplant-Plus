@@ -479,7 +479,7 @@ function scr_player_mach3() //gml_Script_scr_player_mach3
                 image_speed = 0.75
             else if ((sprite_index == spr_rollgetup) || (sprite_index == spr_mach3hit) || (sprite_index == spr_dashpadmach))
                 image_speed = 0.40000000000000002
-            if (((!key_attack) && (fightball == 0) && (!launched) && (sprite_index != spr_dashpadmach) && grounded && (vsp > 0) && ((move == 0) || (move != xscale)) && grounded && (fightball == 0)))
+            if (((!key_attack) && (fightball == 0) && (!launched) && (sprite_index != spr_dashpadmach) && grounded && (vsp > 0) && grounded && (fightball == 0)))
             {
                 sprite_index = spr_machslidestart
                 if ispeppino

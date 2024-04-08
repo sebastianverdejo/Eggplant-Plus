@@ -133,10 +133,23 @@ function scr_player_Sjump()
 	}
 	if !ispeppino && character == "P" && sprite_index == spr_superjump
 		hsp = move * 3;
-	if (character == "V" && floor(image_index) == image_number - 1)
+	if character = "V"
 	{
-		state = states.jump;
-		sprite_index = spr_playerV_fall;
+		if key_slap2
+		{
+			vsp = -5
+			state = states.revolver
+			image_index = 0
+			sprite_index = spr_playerV_airrevolver
+			image_index = 0
+            with (instance_create((x + (xscale * 20)), (y + 10), obj_shotgunbullet))
+            {
+				is_solid = 0
+                image_xscale = other.xscale
+				image_index = spr_cheesebulletend
+            }
+			fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x, y);
+		}
 	}
 	image_speed = 0.5;
 	scr_collide_player();
