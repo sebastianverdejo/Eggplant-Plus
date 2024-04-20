@@ -15,6 +15,7 @@ pause_menu = ["pause_resume", "pause_options", "pause_restart", "pause_exit"];
 pause_menu_map = ds_map_create();
 ds_map_set(pause_menu_map, "pause_resume", [0, function()
 {
+	global.npstate = "In Game";
 	scr_pause_activate_objects();
 	pause_unpause_music();
 	instance_destroy(obj_option);
@@ -34,6 +35,7 @@ ds_map_set(pause_menu_map, "pause_options", [1, function()
 }]);
 ds_map_set(pause_menu_map, "pause_restart", [2, function()
 {
+	global.npstate = "In Game";
 	if (room == Endingroom || room == tower_soundtest || room == tower_soundtestlevel || room == Creditsroom || room == Johnresurrectionroom)
 		exit;
 	if !global.snickchallenge
@@ -57,6 +59,7 @@ ds_map_set(pause_menu_map, "pause_restart", [2, function()
 }]);
 var exit_function = function()
 {
+	global.npstate = "In Game";
 	if (room == Endingroom || room == Creditsroom || room == Johnresurrectionroom)
 		exit;
 	pause_unpause_music();

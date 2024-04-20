@@ -11,6 +11,7 @@ with other
 		global.leveltorestart = other.targetRoom;
 		global.levelattempts = 0;
 		global.hub_bgsprite = other.bgsprite;
+		global.npdetails = "Playing " + string_upper(other.level);
 		backtohubstartx = x;
 		backtohubstarty = y;
 		backtohubroom = room;
@@ -62,6 +63,7 @@ if ((floor(obj_player1.image_index) == (obj_player1.image_number - 1) && obj_pla
 			global.exitrank = true;
 		if gate.level != "tutorial"
 		{
+			global.npinlevel = 1
 			if gate.object_index != obj_bossdoor
 			{
 				if (!instance_exists(obj_titlecard))

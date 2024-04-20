@@ -21,7 +21,10 @@ panicstart = false;
 add_music(Endingroom, "event:/music/ending", noone, false);
 add_music(Creditsroom, "event:/music/credits", noone, false);
 add_music(Johnresurrectionroom, "event:/music/ending", noone, false);
-add_music(characterselect, "event:/music/characterselect", noone, false);
+add_music(characterselect, "event:/music/characterselect", noone, false, function(room, event)
+{
+	fmod_event_instance_set_parameter(event, "characterselectload", global.characterselectload, true)
+})
 
 add_music(Longintro, "event:/music/intro", noone, false, function(room, parameter)
 {
@@ -42,6 +45,7 @@ add_music(tower_2, "event:/music/hub", "event:/music/pillarmusic", false, hub_st
 add_music(tower_3, "event:/music/hub", "event:/music/pillarmusic", false, hub_state)
 add_music(tower_4, "event:/music/hub", "event:/music/pillarmusic", false, hub_state)
 add_music(tower_5, "event:/music/hub", "event:/music/pillarmusic", false, hub_state)
+add_music(tower_6, "event:/music/hub", "event:/music/pillarmusic", false, hub_state)
 add_music(tower_finalhallway, "event:/music/finalescape", noone, false) 
 add_music(tower_finalhallwaytitlecard, "event:/music/pillarmusic", noone, false) 
 add_music(tower_pizzafacehall, "event:/music/w5/finalhallway", noone, false) 
@@ -232,3 +236,11 @@ add_music(street_1, "event:/music/w4/street", "event:/music/w4/streetsecret", fa
 add_music(chateau_1, "event:/music/w5/chateau", "event:/music/w1/medievalsecret", false)
 add_music(kidsparty_1, "event:/music/w5/kidsparty", "event:/music/w5/kidspartysecret", false)
 add_music(war_1, "event:/music/w5/war", "event:/music/w5/warsecret", false)
+add_music(mansion_1, "event:/eggplantplus-music/w6/mansion", "event:/music/w1/medievalsecret", false, function(room, event)
+{
+	if room == mansion_3
+		fmod_event_instance_set_parameter(event, "state", 1, true);
+	else if room == mansion_1
+		fmod_event_instance_set_parameter(event, "state", 0, true);
+});
+add_music(sky_1, "event:/eggplantplus-music/w6/sky", "event:/music/w1/medievalsecret", false)

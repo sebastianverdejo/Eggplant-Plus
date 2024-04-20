@@ -32,6 +32,7 @@ lastmenu = 0;
 menu = 0;
 optionselected = 0;
 backbuffer = 0;
+global.moddedpage = 0;
 pause_icons = array_create(0);
 scr_pauseicon_add(spr_pauseicons, 4);
 scr_pauseicon_add(spr_pauseicons, 5);
@@ -511,7 +512,7 @@ add_option_press(modded_menu, 0, "option_back", function()
 {
 	menu_goto(menus.options);
 });
-add_option_toggle(modded_menu, 1, string("HEATMETER"), function(val)
+add_option_toggle(modded_menu, 1, "option_heatmeter", function(val)
 {
 	ini_open_from_string(obj_savesystem.ini_str_options);
 	ini_write_real("Option", "heatmeter", val);
@@ -519,7 +520,7 @@ add_option_toggle(modded_menu, 1, string("HEATMETER"), function(val)
 	global.option_heatmeter = val;
 }).value = global.option_heatmeter;
 
-add_option_toggle(modded_menu, 2, string("CHAINSAW TOGGLE"), function(val)
+add_option_toggle(modded_menu, 2, "option_chainsaw", function(val)
 {
 	ini_open_from_string(obj_savesystem.ini_str_options);
 	ini_write_real("Option", "chainsaw", val);
@@ -527,7 +528,15 @@ add_option_toggle(modded_menu, 2, string("CHAINSAW TOGGLE"), function(val)
 	global.option_chainsaw = val;
 }).value = global.option_chainsaw;
 
-add_option_multiple(modded_menu, 3, string("DOUBLE GRAB"), [create_option_value("option_doublegrab_none", 0), create_option_value("option_doublegrab_chainsaw", 1)], function(val)
+add_option_toggle(modded_menu, 2, "option_pistol", function(val)
+{
+	ini_open_from_string(obj_savesystem.ini_str_options);
+	ini_write_real("Option", "pistol", val);
+	obj_savesystem.ini_str_options = ini_close();
+	global.option_pistol = val;
+}).value = global.option_pistol;
+
+add_option_multiple(modded_menu, 3, "option_doublegrab", [create_option_value("option_doublegrab_none", 0), create_option_value("option_doublegrab_chainsaw", 1)], function(val)
 {
 	ini_open_from_string(obj_savesystem.ini_str_options);
 	ini_write_real("Option", "doublegrab", val);

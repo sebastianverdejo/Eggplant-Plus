@@ -1,5 +1,9 @@
 if room == editor_room
 	exit;
+if global.npinlevel = 1
+	global.npscore = " | Score: " + string(global.collect);
+else
+	global.npscore = "";
 player = (obj_player1.spotlight == 1) ? obj_player1 : obj_player2;
 if (!instance_exists(obj_pizzaball))
 	targetgolf = -4;
@@ -30,15 +34,15 @@ else if obj_player1.character == "P"
 		healthold = global.hp;
 	}
 }
-if global.coop == 1
+if global.coop
 {
-	var p1 = player;
-	var p2 = (obj_player1.spotlight == 1) ? obj_player2: obj_player1;
-	p2pdistance = point_distance(p1.x, 0, p2.x, 0);
-	p2pdistancex = (p1.x >= p2.x) ? (-p2pdistance / 5) : (p2pdistance / 5);
+    var p1 = player
+    var p2 = ((obj_player1.spotlight == 1) ? obj_player2 : obj_player1)
+    p2pdistance = point_distance(p1.x, 0, p2.x, 0)
+    p2pdistancex = (((p1.x >= p2.x) ? (-p2pdistance) : p2pdistance) / 5)
 }
 else
-	p2pdistancex = 0;
+    p2pdistancex = 0
 if (floor(image_index) == 10)
 	shoving = false;
 if (room == strongcold_endscreen || room == Longintro || room == Mainmenu || room == rm_levelselect || room == rank_room || room == timesuproom || room == Realtitlescreen || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
@@ -146,7 +150,7 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 				if camzoom >= 0.998
 					camzoom = 1;
 			}
-			var target = player;
+			var target = player
 			var tx = target.x + offset_x;
 			var ty = target.y + offset_y;
 			if target.state == states.backtohub
@@ -205,8 +209,8 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 				{
 					cam_x = ((obj_player1.x + obj_player2.x) / 2) - (cam_width / 2);
 					cam_y = ((obj_player1.y + obj_player2.y) / 2) - (cam_height / 2);
-					var disx = abs(obj_player1.x - obj_player2.x) / coop_zoom_width;
-					var disy = abs(obj_player1.y - obj_player2.y) / coop_zoom_height;
+                    var disx = (abs((obj_player1.x - obj_player2.x)) / coop_zoom_width)
+                    var disy = (abs((obj_player1.y - obj_player2.y)) / coop_zoom_height)
 					var dis = max(disx, disy);
 					dis = max(1, dis);
 					camera_zoom(dis, 0.035);
@@ -223,8 +227,8 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 				}
 				cam_x = ((obj_player1.x + targetgolf.x + _px) / 2) - (cam_width / 2);
 				cam_y = ((obj_player1.y + targetgolf.y + _py) / 2) - (cam_height / 2) - 50;
-				disx = abs(obj_player1.x - targetgolf.x - _px) / coop_zoom_width;
-				disy = abs(obj_player1.y - targetgolf.y - _py) / coop_zoom_height;
+                disx = (abs(((obj_player1.x - targetgolf.x) - _px)) / coop_zoom_width)
+                disy = (abs(((obj_player1.y - targetgolf.y) - _py)) / coop_zoom_height)
 				dis = max(disx, disy);
 				dis = max(1, dis);
 				camera_zoom(dis, 0.035);

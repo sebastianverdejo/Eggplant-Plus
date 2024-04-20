@@ -20,4 +20,5 @@ ini_open_from_string(obj_savesystem.ini_str_options);
 global.option_heatmeter = ini_read_real("Option", "heatmeter", false);
 global.option_doublegrab = ini_read_real("Option", "doublegrab", false);
 global.option_chainsaw = ini_read_real("Option", "chainsaw", false);
+global.option_pistol = ini_read_real("Option", "pistol", false);
 obj_savesystem.ini_str_options = ini_close();

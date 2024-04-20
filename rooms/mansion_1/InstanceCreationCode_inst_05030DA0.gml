@@ -1,2 +1,2 @@
-targetRoom = mansion_foyer;
+targetRoom = mansion_3;
 visible = false

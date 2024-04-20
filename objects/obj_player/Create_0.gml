@@ -3,6 +3,8 @@ if (instance_number(object_index) > 1)
 	instance_destroy();
 	exit;
 }
+global.characterselectload = 0;
+global.ricebusyon = 1;
 global.current_level = -4;
 resetdoisecount = 0;
 global.resetdoise = false;
@@ -37,6 +39,7 @@ global.door_sprite = spr_door;
 global.door_index = 0;
 global.pistol = false;
 global.bombs = false;
+global.editor_data = 0;
 
 fightball_buffer1 = 0;
 fightball_buffer2 = 0;

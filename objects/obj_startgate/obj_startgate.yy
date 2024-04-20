@@ -38,7 +38,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Doors",
-    "path": "folders/Objects/Room Structure/Doors.yy",
+    "name": "Tower",
+    "path": "folders/Objects/Level Specific/Tower.yy",
   },
 }

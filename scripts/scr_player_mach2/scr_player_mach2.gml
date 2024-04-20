@@ -7,6 +7,8 @@ function scr_player_mach2()
 	var accel = 0.1;
 	var mach4accel = 0.4;
 	var machrollvsp = 10;
+	if global.ricebusyon && !ispeppino
+		accel = (0.1 * 2)
 	if windingAnim < 2000
 		windingAnim++;
 	if (place_meeting(x, y + 1, obj_railparent))

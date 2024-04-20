@@ -208,32 +208,50 @@ function draw_player()
 	}
 	if !ispeppino && state == states.trashjumpprep
 		exit;
-	
+	if global.ricebusyon
+	{
+		if !ispeppino
+			var sprite = spr_ricebusyn;
+		else if ispeppino
+			var sprite = spr_ricebusy;
+	}
+	else if !global.ricebusyon
+		sprite = sprite_index;
 	var b = get_dark(image_blend, other.use_dark);
 	var pattern = global.palettetexture;
 	var ps = paletteselect;
-	var spr = spr_palette;
+	if global.ricebusyon
+		var spr = spr_ricepalette;
+	else
+		var spr = spr_palette;
 	if (ispeppino && room == boss_noise && (sprite_index == spr_playerN_doiseintro1 || sprite_index == spr_playerN_doiseintro2 || sprite_index == spr_playerN_doiseintro3))
 	{
 		var info = get_noise_palette_info();
 		pattern = info.patterntexture;
 		ps = info.paletteselect;
-		spr = info.spr_palette;
+		if global.ricebusyon
+			spr = spr_ricepalette;
+		else
+			spr = info.spr_palette;
 	}
 	if object_index == obj_player1
-		pattern_set(global.Base_Pattern_Color, sprite_index, image_index, xscale * scale_xs, yscale * scale_ys, pattern);
+	{
+		pattern_set(global.Base_Pattern_Color, sprite, image_index, xscale * scale_xs, yscale * scale_ys, pattern);
+	}
 	
 	if isgustavo
 		spr = spr_ratmountpalette;
 	if (!ispeppino && instance_exists(obj_pizzaface_thunderdark))
 		spr = spr_noisepalette_rage;
+	if global.ricebusyon
+		spr = spr_ricepalette;
 	
 	pal_swap_set(spr, ps, false);
-	draw_sprite_ext(sprite_index, image_index, x, y, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha);
+	draw_sprite_ext(sprite, image_index, x, y, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha);
 	if (global.noisejetpack && (ispeppino || noisepizzapepper))
 	{
 		pal_swap_set(spr_palette, 2, false);
-		draw_sprite_ext(sprite_index, image_index, x, y, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha);
+		draw_sprite_ext(sprite, image_index, x, y, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha);
 	}
 	draw_superslam_enemy();
 	if global.pistol

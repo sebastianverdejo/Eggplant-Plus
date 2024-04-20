@@ -290,6 +290,8 @@ if (pause && !instance_exists(obj_loadingscreen) && alarm[3] == -1)
 }
 if (pause && !instance_exists(obj_option) && !instance_exists(obj_achievement_pause) && alarm[3] == -1)
 {
+	instance_activate_object(obj_NekoPresence);
+	global.npstate = "Paused";
 	scr_menu_getinput();
 	var _dvc = obj_inputAssigner.player_input_device[0];
 	key_back = key_back || key_start;

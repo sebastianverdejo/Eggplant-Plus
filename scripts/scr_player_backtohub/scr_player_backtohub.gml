@@ -1,5 +1,7 @@
 function scr_player_backtohub()
 {
+	global.npinlevel = 0
+	global.npstateextrainfo = "";
 	global.leveltorestart = -4;
 	global.noisejetpack = false;
 	hsp = 0;

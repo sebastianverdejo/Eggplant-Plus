@@ -1,1 +1,1 @@
-targetRoom = mansion_2;
+targetRoom = mansion_1;

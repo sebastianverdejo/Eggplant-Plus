@@ -1,4 +1,9 @@
 pal_swap_init_system(shd_pal_swapper)
+if global.panic == false
+{
+	global.npdetails = "In the Tower"
+	global.npstateextrainfo = ""
+}
 global.roommessage = lang_get_value("room_towerentrance")
 global.door_sprite = spr_door
 global.door_index = 0

@@ -60,7 +60,7 @@ for (var i = 0; i < array_length(lay_arr); i++)
 			layer_y(lay, _cam_y);
 			break;
 		case "Backgrounds_H3":
-			layer_x(lay, _cam_x * 0.0275);
+			layer_x(lay, _cam_x * 0.0055);
 			layer_y(lay, _cam_y);
 			break;
 		case "Backgrounds_sky":

@@ -9,6 +9,7 @@ function scr_is_p_rank()
 }
 function scr_do_rank(showtoppins = true, boss = false)
 {
+	global.npinlevel = 0
 	fmod_event_instance_stop(global.snd_escaperumble, true);
 	var ex = x;
 	var ey = y;
@@ -87,6 +88,8 @@ function scr_do_rank(showtoppins = true, boss = false)
 	{
 		with (instance_create(x, y, obj_endlevelfade))
 		{
+			global.npdetails = "Getting Ranked";
+			global.npstateextrainfo = " | Rank: " + string_upper(global.rank);
 			do_rank = true;
 			toppinvisible = showtoppins;
 			with obj_pizzaface

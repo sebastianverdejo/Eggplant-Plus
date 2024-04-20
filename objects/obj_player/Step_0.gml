@@ -1470,6 +1470,10 @@ if global.playerhealth > 8
 	global.playerhealth = 8
 if character == "V" && isgustavo
 	isgustavo = false;
+if global.ricebusyon
+{
+	spr_palette = spr_ricepalette;
+}
 
 // decomp helper
 if mouse_check_button(mb_left)

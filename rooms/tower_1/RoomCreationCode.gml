@@ -1,4 +1,9 @@
 pal_swap_init_system(shd_pal_swapper)
+if global.panic == false
+{
+	global.npdetails = "In the Tower";
+	global.npstateextrainfo = "";
+}
 global.roommessage = lang_get_value("room_tower1")
 if (global.panic == 0)
 	global.gameframe_caption_text = lang_get_value("caption_tower1")

@@ -1,3 +1,4 @@
+global.npdetails = "In Main Menu";
 currentselect = 0;
 optionbuffer = 0;
 visualselect = 0;

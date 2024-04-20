@@ -45,7 +45,7 @@
     "name": "spr_playerV_winding",
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 1.0,
+    "playbackSpeed": 0.35,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,

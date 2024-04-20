@@ -6,11 +6,19 @@ function scr_player_tumble()
 		railmovespeed = _railinst.movespeed;
 		raildir = _railinst.dir;
 	}
+	var sndslide = fmod_event_create_instance("event:/sfx/vigilante/slide");
+	fmod_event_instance_set_3d_attributes(sndslide, x, y);
 	hsp = (xscale * movespeed) + (railmovespeed * raildir);
 	move = key_right + key_left;
 	mask_index = spr_crouchmask;
-	if sprite_index == spr_playerV_divekickstart && movespeed < 12
-		movespeed = 12;
+	if sprite_index == spr_playerV_divekickstart && movespeed < 15
+	{
+		fmod_event_instance_play(sndslide);
+		flash = true;
+		movespeed = 15;
+		image_index = 0;
+		image_speed = 0.15
+	}
 	if sprite_index == spr_tumblestart
 		movespeed = 6;
 	if (!grounded && (sprite_index == spr_crouchslip || sprite_index == spr_machroll || sprite_index == spr_mach2jump || sprite_index == spr_backslide || sprite_index == spr_backslideland))
@@ -65,28 +73,41 @@ function scr_player_tumble()
 		sprite_index = spr_machroll;
 		image_index = 0;
 	}
-	if sprite_index == spr_dive && key_jump
+	if character == "P"
 	{
-		if ispeppino
+		if sprite_index == spr_dive && key_jump
 		{
-			sprite_index = spr_player_poundcancel1;
-			image_index = 0;
-			state = states.freefall;
-			dir = xscale;
-			vsp = -6;
+			if ispeppino
+			{
+				sprite_index = spr_player_poundcancel1;
+				image_index = 0;
+				state = states.freefall;
+				dir = xscale;
+				vsp = -6;
+			}
+			else
+			{
+				sprite_index = spr_playerN_divebomb;
+				state = states.machcancel;
+				vsp = 20;
+				hsp = 0;
+				savedmove = xscale;
+				movespeed = 0;
+				input_buffer_slap = 0;
+				input_buffer_jump = 0;
+				image_index = 0;
+				exit;
+			}
 		}
-		else
+	}
+	if character == "V"
+	{
+		if sprite_index == spr_dive && key_jump
 		{
-			sprite_index = spr_playerN_divebomb;
-			state = states.machcancel;
-			vsp = 20;
-			hsp = 0;
-			savedmove = xscale;
-			movespeed = 0;
-			input_buffer_slap = 0;
-			input_buffer_jump = 0;
-			image_index = 0;
-			exit;
+			jumpstop = false;
+			vsp = -11;
+			state = states.mach2;
+			sprite_index = spr_playerV_bootsjump;
 		}
 	}
 	if movespeed <= 2 && sprite_index != spr_tumble && sprite_index != spr_breakdance
@@ -137,38 +158,57 @@ function scr_player_tumble()
 			movespeed = 14;
 		}
 	}
-	if ((state != states.freefall && ((place_meeting(x + xscale, y, obj_solid) || scr_solid_slope(x + xscale, y)) && !place_meeting(x + hsp, y, obj_rollblock) && (!place_meeting(x + hsp, y, obj_rattumble) || sprite_index != spr_tumble) && !place_meeting(x + hsp, y, obj_destructibles))) || place_meeting(x, y, obj_timedgate) || character != "V")
+	if character == "P"
 	{
-		if (sprite_index == spr_tumble || sprite_index == spr_tumblestart)
+		if ((state != states.freefall && ((place_meeting(x + xscale, y, obj_solid) || scr_solid_slope(x + xscale, y)) && !place_meeting(x + hsp, y, obj_rollblock) && (!place_meeting(x + hsp, y, obj_rattumble) || sprite_index != spr_tumble) && !place_meeting(x + hsp, y, obj_destructibles))) || place_meeting(x, y, obj_timedgate))
 		{
-			hsp = 0;
-			movespeed = 0;
-			fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
-			state = states.bump;
-			landAnim = false;
-			sprite_index = spr_tumbleend;
-			image_index = 0;
-			hsp = -xscale * 2;
-			vsp = -3;
-			jumpstop = true;
-		}
-		else
-		{
-			if character == "P"
+			if (sprite_index == spr_tumble || sprite_index == spr_tumblestart)
 			{
 				hsp = 0;
 				movespeed = 0;
-				fmod_event_one_shot_3d("event:/sfx/pep/splat", x, y);
-				state = states.bump;
-				image_index = 0;
-				sprite_index = spr_wallsplat;
-			}
-			else if character == "V"
-			{
-				instance_create(x + (10 * xscale), y + 10, obj_bumpeffect);
 				fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
-				xscale *= -1;
+				state = states.bump;
+				landAnim = false;
+				sprite_index = spr_tumbleend;
+				image_index = 0;
+				hsp = -xscale * 2;
+				vsp = -3;
+				jumpstop = true;
 			}
+		}
+		if place_meeting(x + sign(hsp), y, obj_solid) && !place_meeting(x + sign(hsp), y, obj_slope)
+		{
+			hsp = 0;
+			movespeed = 0;
+			fmod_event_one_shot_3d("event:/sfx/pep/splat", x, y);
+			state = states.bump;
+			image_index = 0;
+			sprite_index = spr_wallsplat;
+		}
+	}
+	else if character == "V"
+	{
+		if ((state != states.freefall && ((place_meeting(x + xscale, y, obj_solid) || scr_solid_slope(x + xscale, y)) && !place_meeting(x + hsp, y, obj_rollblock) && (!place_meeting(x + hsp, y, obj_rattumble) || sprite_index != spr_tumble) && !place_meeting(x + hsp, y, obj_destructibles))) || place_meeting(x, y, obj_timedgate))
+		{
+			if (sprite_index == spr_tumble || sprite_index == spr_tumblestart)
+			{
+				hsp = 0;
+				movespeed = 0;
+				fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
+				state = states.bump;
+				landAnim = false;
+				sprite_index = spr_tumbleend;
+				image_index = 0;
+				hsp = -xscale * 2;
+				vsp = -3;
+				jumpstop = true;
+			}
+		}
+		if place_meeting(x + sign(hsp), y, obj_solid) && !place_meeting(x + sign(hsp), y, obj_slope)
+		{
+			instance_create(x + (10 * xscale), y + 10, obj_bumpeffect);
+			fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
+			xscale *= -1;
 		}
 	}
 	if !key_jump2 && jumpstop == 0 && vsp < 0.5 && stompAnim == 0

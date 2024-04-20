@@ -17,6 +17,8 @@ function scr_player_mach3() //gml_Script_scr_player_mach3
             var jumpspeed = -11
             var machrollspeed = 10
             var mach3_spr = spr_mach4
+			if global.ricebusyon && !ispeppino
+				accel = (0.025 * 2)
             if (global.swapmode && key_attack && key_fightball && (!instance_exists(obj_swapmodegrab)) && (!instance_exists(obj_swapdeatheffect)) && (!instance_exists(obj_noiseanimatroniceffect)) && (obj_swapmodefollow.animatronic <= 0))
             {
                 sprite_index = spr_fightball
