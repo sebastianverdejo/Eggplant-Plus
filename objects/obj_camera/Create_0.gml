@@ -1,3 +1,5 @@
+live_auto_call;
+
 state = states.normal;
 detach = false;
 detachedby = -1;
@@ -43,12 +45,16 @@ shake_mag = 0;
 shake_mag_acc = 0;
 zoom = false;
 chargecamera = 0;
+bulletimage = 0;
+fuelimage = 0;
 alpha = 1;
 zoomh = SCREEN_HEIGHT;
 zoomw = SCREEN_WIDTH;
 global.panicbg = true;
 global.maxwave = 0;
 global.wave = 0;
+global.paniclayercount = 0;
+global.panicshadetimer = 0;
 ded = false;
 player = obj_player1;
 spr_player = -4;

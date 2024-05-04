@@ -229,6 +229,11 @@ function scr_hurtplayer(player)
 			global.style -= 25;
 			global.hurtcounter += 1;
 			global.player_damage += 1;
+			with instance_create(x, y, obj_playerclone)
+			{
+				LAG_STEPS = (global.playerclonehowmuch * 50)
+				extra = 1;
+			}
 			
 			if global.swapmode
 				global.swap_boss_damage++;

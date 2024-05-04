@@ -127,7 +127,7 @@ switch scene
 		}
 		break;
 	case 3:
-		bg1.x = lerp(bg1.x, -200, 0.04);
+		bg1.x = lerp(bg.x, -200, 0.04);
 		bg2.x = lerp(bg2.x, 200, 0.04);
 		if _switch
 		{

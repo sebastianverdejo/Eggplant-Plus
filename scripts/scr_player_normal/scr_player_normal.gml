@@ -305,6 +305,8 @@ function state_player_normal()
 					sprite_index = spr_shotgunjump;
 				else if global.pistol && ispeppino
 					sprite_index = spr_player_pistoljump1;
+				if (global.fill <= 0 && !instance_exists(obj_ghostcollectibles))
+					sprite_index = spr_player_hurtjump;
 				image_index = 0;
 			}
 			particle_set_scale(particle.highjumpcloud2, xscale, 1);
@@ -479,6 +481,18 @@ function state_player_normal()
 		machslideAnim = false;
 		image_speed = 0.45;
 	}
+	if (key_chainsaw2 && floor(global.fuel) != 0 && global.option_chainsaw)
+    {
+       	global.fuel = floor(global.fuel - 1);
+		chainsawbuffer = 65;
+        state = states.chainsawbump
+        sprite_index = spr_player_chainsawrev
+        image_index = 0
+    }
+	if (character != "V" && key_shoot2 && floor(global.bullet) != 0 && input_buffer_shoot > 0 && global.option_pistol)
+    {
+		scr_pistolshoot(states.normal);
+    }
 }
 function state_pepperman_normal()
 {

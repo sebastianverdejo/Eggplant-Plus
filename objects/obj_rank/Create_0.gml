@@ -66,6 +66,8 @@ else
 	}
 }
 
+global.bullet = 3;
+global.fuel = 5;
 text_pos = 0;
 toppin_index = 0;
 toppin_state = states.jump;

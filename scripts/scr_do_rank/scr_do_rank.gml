@@ -52,6 +52,8 @@ function scr_do_rank(showtoppins = true, boss = false)
 			else if (currhats >= (maxhats - 8))
 				_rank = "c";
 			global.rank = _rank;
+			global.npdetails = "Getting Ranked";
+			global.npstateextrainfo = " | Rank: " + string_upper(global.rank);
 			scr_write_rank(global.leveltosave);
 			scr_play_rank_music();
 			obj_savesystem.ini_str = ini_close();
@@ -88,8 +90,6 @@ function scr_do_rank(showtoppins = true, boss = false)
 	{
 		with (instance_create(x, y, obj_endlevelfade))
 		{
-			global.npdetails = "Getting Ranked";
-			global.npstateextrainfo = " | Rank: " + string_upper(global.rank);
 			do_rank = true;
 			toppinvisible = showtoppins;
 			with obj_pizzaface

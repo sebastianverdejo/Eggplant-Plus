@@ -83,9 +83,9 @@ switch state
 				{
 					var c = charselect;
 					charselect += _move_v;
-					charselect = clamp(charselect, 0, 3);
-					if charselect == 3 && !swap_unlocked
-						charselect = 2;
+					charselect = clamp(charselect, 0, 4);
+					if charselect == 4 && !swap_unlocked
+						charselect = 3;
 					if charselect != c
 					{
 						game_icon_y = p * _move_v;
@@ -98,25 +98,36 @@ switch state
 					}
 					var _noise = shownoise
 					var _vigi = showvigi
+					var _pepper = showpepper
 					if charselect == 0
 					{
 						shownoise = false;
 						showvigi = false;
+						showpepper = false;
 						showswap = false;
 					}
-					else if (charselect == 1 || charselect == 3)
+					if (charselect == 1 || charselect == 4)
 					{
 						shownoise = true;
 						showvigi = false;
-						if charselect == 3
+						showpepper = false;
+						if charselect == 4
 							showswap = true;
 						else
 							showswap = false;
 					}
-					else if charselect == 2
+					if charselect == 2
 					{
 						shownoise = false;
 						showvigi = true;
+						showpepper = false;
+						showswap = false;
+					}
+					if charselect == 3
+					{
+						shownoise = false;
+						showvigi = false;
+						showpepper = true;
 						showswap = false;
 					}
 					if _noise != shownoise

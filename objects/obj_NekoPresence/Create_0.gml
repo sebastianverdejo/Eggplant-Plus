@@ -1,6 +1,6 @@
 /// @description Initialize Discord.
 
-#macro DISCORD_APP_ID "1225670135059058698"
+#macro DISCORD_APP_ID "1235743552865304636"
 
 ready = false;
 if (!np_initdiscord(DISCORD_APP_ID, true, np_steam_app_id_empty))

@@ -23,8 +23,8 @@ add_music(Creditsroom, "event:/music/credits", noone, false);
 add_music(Johnresurrectionroom, "event:/music/ending", noone, false);
 add_music(characterselect, "event:/music/characterselect", noone, false, function(room, event)
 {
-	fmod_event_instance_set_parameter(event, "characterselectload", global.characterselectload, true)
-})
+	fmod_event_instance_set_parameter(event, "state", 1, true)
+});
 
 add_music(Longintro, "event:/music/intro", noone, false, function(room, parameter)
 {

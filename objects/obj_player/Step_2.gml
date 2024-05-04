@@ -1,3 +1,5 @@
+live_auto_call;
+
 player_index = swap_is_player2();
 var pal = player_index;
 if global.swapmode && obj_savesystem.ispeppino

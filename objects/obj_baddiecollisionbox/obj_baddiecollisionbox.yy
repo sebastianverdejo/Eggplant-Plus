@@ -48,6 +48,7 @@
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_canonexplosion","path":"objects/obj_canonexplosion/obj_canonexplosion.yy",},},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_pizzapeppermissile","path":"objects/obj_pizzapeppermissile/obj_pizzapeppermissile.yy",},},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_playerclone","path":"objects/obj_playerclone/obj_playerclone.yy",},},
   ],
   "properties": [],
   "overriddenProperties": [],

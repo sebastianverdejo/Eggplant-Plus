@@ -58,5 +58,14 @@ else if (state == states.freefall || (state == states.mach2 && attackspeed >= 18
 {
 	if other.flash
 		flash = false;
-	scr_hurtplayer(other);
+	if !global.ricebusyon
+		scr_hurtplayer(other);
+}
+if global.ricebusyon
+{
+	if room != boss_pizzaface
+	{
+		elitehit = -1;
+		instance_destroy()
+	}
 }

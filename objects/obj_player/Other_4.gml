@@ -1,3 +1,5 @@
+live_auto_call;
+
 if room == timesuproom
 {
 	scale_xs = 1;

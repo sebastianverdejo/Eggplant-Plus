@@ -12,6 +12,8 @@ with other
 		global.levelattempts = 0;
 		global.hub_bgsprite = other.bgsprite;
 		global.npdetails = "Playing " + string_upper(other.level);
+		global.bullet = 3;
+		global.fuel = 5;
 		backtohubstartx = x;
 		backtohubstarty = y;
 		backtohubroom = room;

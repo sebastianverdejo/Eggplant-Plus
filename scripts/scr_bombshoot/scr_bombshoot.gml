@@ -21,6 +21,8 @@ function scr_bombshoot(_state)
 		jumpstop = true;
 		if (_state == states.mach2 || _state == states.mach3)
 			state = 0;
+		if global.option_pistol
+			global.bullet = floor(global.bullet - 1);
 	}
 }
 function scr_bomb_do_boss_phase2(boss_inst)

@@ -3,6 +3,8 @@ var m = menus[menu];
 
 if instance_exists(obj_keyconfig)
 	j = 4;
+if instance_exists(obj_gameconfig)
+	j = 5;
 if m.menu_id >= menus.controls && m.menu_id <= menus.unused_3
 	j = 4;
 else if m.menu_id >= menus.video && m.menu_id <= menus.unused_1
@@ -25,7 +27,7 @@ for (var i = 0; i < array_length(bg_alpha); i++)
 bg_x -= 1;
 bg_y -= 1;
 
-if (instance_exists(obj_keyconfig) || instance_exists(obj_screenconfirm))
+if (instance_exists(obj_keyconfig) || instance_exists(obj_gameconfig) || instance_exists(obj_screenconfirm))
 	exit;
 
 scr_menu_getinput();

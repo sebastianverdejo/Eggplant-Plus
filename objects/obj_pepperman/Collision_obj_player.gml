@@ -52,3 +52,11 @@ else if (state == states.mini && ministate != states.transition && (other.instak
 	spr_dead = spr_pepperman_minifall;
 	instance_destroy();
 }
+if global.ricebusyon
+{
+	if room != boss_pizzaface
+	{
+		elitehit = -1;
+		instance_destroy();
+	}
+}

@@ -10,3 +10,5 @@ if other.state == states.knightpep && other.sprite_index != other.spr_knightpeps
 	other.vsp = -11;
 	instance_destroy(obj_swordstone);
 }
+if global.ricebusyon
+	elitehit = -1;

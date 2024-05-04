@@ -1,0 +1,13 @@
+key_select = -1;
+yplacement = 480;
+moveselected = 250;
+moveselsmooth = -250;
+moveselsmoothhit = 420;
+selecting = -1
+depth = -200;
+stickpressed = 0
+heatmeter = global.option_heatmeter
+doublegrab = global.option_doublegrab
+chainsaw = global.option_chainsaw
+pistol = global.option_pistol
+image_speed = 0.25

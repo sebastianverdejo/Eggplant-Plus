@@ -1,3 +1,5 @@
+live_auto_call;
+
 draw_set_alpha(1);
 if (is_bossroom() || room == editor_room || instance_exists(obj_tutorialbook))
 	exit;
@@ -187,6 +189,76 @@ if obj_player.state != states.dead
 	}
 	shader_set(global.Pal_Shader);
 	draw_set_alpha(alpha);
+	if global.option_pistol
+	{
+		bulletimage += 0.35;
+		
+		var bx = hud_xx - 63, 
+		var by = hud_yy - 16;
+		var bpad = 42;
+		var bspr = spr_peppinobullet_collectible;
+				
+		if obj_player1.character == "N" || !obj_player1.ispeppino
+		{
+		    bx = hud_xx - 69;
+		    by = hud_yy + 45;
+		    bspr = spr_playerN_noisebomb;
+		}
+		
+		if global.option_heatmeter
+			by += 32;
+		
+		bx += bpad * max(ceil(global.bullet), 3);
+		for (var i = 0; i < max(global.bullet, 3); i++)
+		{
+			var a = alpha, img = bulletimage, col = c_white;
+			if i >= floor(global.bullet)
+			{
+				a = 0.25;
+				img = 10;
+				col = c_black;
+			}
+			
+		    bx -= bpad;
+		    draw_sprite_ext(bspr, img, bx, by, 1, 1, 0, col, a);
+			if i == floor(global.bullet)
+			{
+				draw_sprite_part_ext(bspr, img, 0, 0, 64, 96 * (0.5 + frac(global.bullet) / 2), bx - 32, by, 1, 1, c_white, 0.75);
+			}
+		}
+	}
+	if global.option_chainsaw || global.option_doublegrab == 1
+	{
+		var bx = hud_xx - 63;
+		var by = hud_yy + 60;
+		var bpad = 25;
+		var bspr = spr_fuelHUD;
+		
+		if global.option_heatmeter
+			by += 32;
+		if global.option_pistol
+			by += 32;
+		
+		bx += bpad * max(ceil(global.fuel), 5);
+		for (i = 0; i < max(global.fuel, 5); i++)
+		{
+			var a = alpha;
+			var img = bulletimage;
+			var col = c_white;
+			if i >= floor(global.fuel)
+			{
+				a = 0.25;
+				img = 10;
+				col = c_black;
+			}
+			bx -= bpad;
+			draw_sprite_ext(bspr, img, bx + 50, by, -1, 1, 0, col, a);
+			if i == floor(global.fuel)
+			{
+				draw_sprite_part_ext(bspr, img, 0, 0, 40, 46 * frac(global.fuel), bx + 71, by - 23, -1, 1, c_white, 0.75);
+			}
+		}
+	}
 	for (i = 0; i < num; i++)
 	{
 		var yy = (((i + 1) % 2) == 0) ? -5 : 0;

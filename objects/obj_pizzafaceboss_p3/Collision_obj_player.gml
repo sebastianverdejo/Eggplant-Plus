@@ -2,5 +2,8 @@ if (state == states.freefall || (state == states.mach2 && attackspeed >= 18) || 
 {
 	if other.flash
 		flash = false;
-	scr_hurtplayer(other);
+	if !global.ricebusyon
+		scr_hurtplayer(other);
 }
+if global.ricebusyon
+	elitehit = -1;

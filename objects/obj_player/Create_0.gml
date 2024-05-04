@@ -1,10 +1,14 @@
+live_auto_call;
+
 if (instance_number(object_index) > 1)
 {
 	instance_destroy();
 	exit;
 }
+chainsawbuffer = 0;
+global.playerclonehowmuch = 0;
 global.characterselectload = 0;
-global.ricebusyon = 1;
+global.ricebusyon = 0;
 global.current_level = -4;
 resetdoisecount = 0;
 global.resetdoise = false;

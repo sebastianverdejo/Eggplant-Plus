@@ -1,1 +1,2 @@
-scr_hurtplayer(other);
+if !global.ricebusyon
+	scr_hurtplayer(other);

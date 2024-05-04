@@ -34,7 +34,6 @@ if !ready && readyload && cors == 0
 	visible = true;
 	with obj_noiseselect
 	visible = true;
-	global.characterselectload = 1;
 	scr_menu_getinput();
 	if (!global.swapmode || obj_inputAssigner.player_input_device[obj_inputAssigner.player_index] > -2)
 	{
@@ -99,7 +98,6 @@ if !ready && readyload && cors == 0
 if !ready && readyload && cors == 1
 {
 	scr_menu_getinput();
-	global.characterselectload = 1;
 	if ((key_up2 && (key_down2 != key_up2)) && (key_select > 0))
     {
         key_select -= 1

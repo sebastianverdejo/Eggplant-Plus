@@ -65,11 +65,8 @@ add_option_press(categories, 3, "option_controls", function()
 });
 add_option_press(categories, 4, "option_modded", function()
 {
-	/*
 	obj_option.key_jump = false;
-	instance_create_unique(0, 0, obj_keyconfig);
-	*/
-	menu_goto(menus.modded);
+	instance_create_unique(0, 0, obj_gameconfig);
 });
 array_push(menus, categories);
 
@@ -508,41 +505,6 @@ array_push(menus, deadzones_menu);
 #region
 
 var modded_menu = create_menu_fixed(menus.modded, anchor.left, 150, 40);
-add_option_press(modded_menu, 0, "option_back", function()
-{
-	menu_goto(menus.options);
-});
-add_option_toggle(modded_menu, 1, "option_heatmeter", function(val)
-{
-	ini_open_from_string(obj_savesystem.ini_str_options);
-	ini_write_real("Option", "heatmeter", val);
-	obj_savesystem.ini_str_options = ini_close();
-	global.option_heatmeter = val;
-}).value = global.option_heatmeter;
-
-add_option_toggle(modded_menu, 2, "option_chainsaw", function(val)
-{
-	ini_open_from_string(obj_savesystem.ini_str_options);
-	ini_write_real("Option", "chainsaw", val);
-	obj_savesystem.ini_str_options = ini_close();
-	global.option_chainsaw = val;
-}).value = global.option_chainsaw;
-
-add_option_toggle(modded_menu, 2, "option_pistol", function(val)
-{
-	ini_open_from_string(obj_savesystem.ini_str_options);
-	ini_write_real("Option", "pistol", val);
-	obj_savesystem.ini_str_options = ini_close();
-	global.option_pistol = val;
-}).value = global.option_pistol;
-
-add_option_multiple(modded_menu, 3, "option_doublegrab", [create_option_value("option_doublegrab_none", 0), create_option_value("option_doublegrab_chainsaw", 1)], function(val)
-{
-	ini_open_from_string(obj_savesystem.ini_str_options);
-	ini_write_real("Option", "doublegrab", val);
-	obj_savesystem.ini_str_options = ini_close();
-	global.option_doublegrab = val;
-}).value = global.option_doublegrab;
 
 array_push(menus, modded_menu);
 

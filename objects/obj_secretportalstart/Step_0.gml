@@ -123,7 +123,7 @@ switch sprite_index
 		{
 			if waitbuffer > 0
 				waitbuffer--;
-			else
+			else if waitbuffer == 0 && !(place_meeting(x, y, obj_playerclone))
 			{
 				sprite_index = spr_secretportal_spawnclose;
 				image_index = 0;

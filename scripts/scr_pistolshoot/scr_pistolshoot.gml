@@ -48,5 +48,7 @@ function scr_pistolshoot(required_state, allow_charge = false)
 			else
 				GamepadSetVibration(0, 0.3, 0.3, 0.6);
 		}
+		if global.option_pistol
+			global.bullet = floor(global.bullet - 1);
 	}
 }

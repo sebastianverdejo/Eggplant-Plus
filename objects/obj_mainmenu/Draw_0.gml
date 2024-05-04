@@ -114,8 +114,13 @@ if noise_unlocked
 	if showvigi
 	{
 		icon = spr_mainmenu_vigiicon;
+		icon = spr_mainmenu_vigiiconswapmode;
+	}
+	if showpepper
+	{
+		icon = spr_pepperman;
 		if swap_unlocked
-			icon = spr_mainmenu_vigiiconswapmode;
+			icon = spr_pepperman_charge;
 	}
 	draw_sprite(icon, game_icon_index, status_x - 100, status_y + 195 + game_icon_y);
 }

@@ -132,6 +132,19 @@ function scr_player_handstandjump()
 			instance_create(x + (xscale * 10), y + 10, obj_bumpeffect);
 		}
 	}
+	if (grounded && key_slap2 && floor(global.fuel) != 0 && global.option_doublegrab = 1)
+    {
+		flash = 1;
+       	global.fuel = floor(global.fuel - 1);
+		chainsawbuffer = 65;
+		particle_set_scale(particle.jumpdust, xscale, 1);
+		create_particle(x, y, particle.jumpdust, 0);
+		if ((movespeed < 12))
+			movespeed = 12
+        state = states.chainsawbump
+        sprite_index = spr_player_chainsawdash
+        image_index = 0
+    }
 	if (!instance_exists(obj_slidecloud) && grounded && movespeed > 5)
 	{
 		with (instance_create(x, y, obj_slidecloud))

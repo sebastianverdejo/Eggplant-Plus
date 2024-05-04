@@ -2,7 +2,8 @@ if ((state == states.mach2 && hsp != 0) || (state == states.pizzahead_spinningki
 {
 	if other.flash
 		other.flash = false;
-	scr_hurtplayer(other);
+	if !global.ricebusyon
+		scr_hurtplayer(other);
 }
 else if (((state == states.walk || (state == states.stun && !savedthrown)) && flickertime <= 0 && wastedhits == 7 && (other.instakillmove || other.state == states.handstandjump)) && !pizzahead)
 {
@@ -25,5 +26,13 @@ else if (((state == states.walk || (state == states.stun && !savedthrown)) && fl
 		other.image_index = 0;
 		if doise
 			scr_doise_end_start();
+	}
+}
+if global.ricebusyon
+{
+	if room != boss_pizzaface
+	{
+		elitehit = -1;
+		instance_destroy()
 	}
 }

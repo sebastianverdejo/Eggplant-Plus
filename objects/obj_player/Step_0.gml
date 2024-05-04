@@ -1,3 +1,5 @@
+live_auto_call;
+
 // clone vars that lag behind by a frame
 prevhsp = hsp;
 prevmove = move;
@@ -6,6 +8,8 @@ previcemovespeed = icemovespeed;
 prevxscale = xscale;
 
 // input buffers and coyote time
+if key_shoot2
+	input_buffer_shoot = 10;
 if key_slap2
 	input_buffer_shoot = 10;
 if key_slap2
@@ -1468,21 +1472,9 @@ if (distance_to_object(obj_spike) < 500)
 }
 if global.playerhealth > 8
 	global.playerhealth = 8
-if character == "V" && isgustavo
-	isgustavo = false;
 if global.ricebusyon
 {
 	spr_palette = spr_ricepalette;
 }
-
-// decomp helper
-if mouse_check_button(mb_left)
-{
-	with all
-	{
-		if point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bottom)
-		{
-			trace("I AM A ", object_get_name(object_index), " AND THAT IS ", object_index, "!");
-		}
-	}
-}
+global.bullet = Approach(global.bullet, 3, 0.003);
+global.fuel = Approach(global.fuel, 5, 0.004);
