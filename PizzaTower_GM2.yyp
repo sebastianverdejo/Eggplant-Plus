@@ -6210,7 +6210,6 @@
     {"id":{"name":"spr_ghostdrape","path":"sprites/spr_ghostdrape/spr_ghostdrape.yy",},"order":0,},
     {"id":{"name":"spr_achievement_beach","path":"sprites/spr_achievement_beach/spr_achievement_beach.yy",},"order":0,},
     {"id":{"name":"spr_peppattern12","path":"sprites/spr_peppattern12/spr_peppattern12.yy",},"order":0,},
-    {"id":{"name":"spr_medievalwindow","path":"sprites/spr_medievalwindow/spr_medievalwindow.yy",},"order":0,},
     {"id":{"name":"spr_playerN_breakdanceuppercut","path":"sprites/spr_playerN_breakdanceuppercut/spr_playerN_breakdanceuppercut.yy",},"order":0,},
     {"id":{"name":"spr_peasanto_throwstart","path":"sprites/spr_peasanto_throwstart/spr_peasanto_throwstart.yy",},"order":0,},
     {"id":{"name":"spr_bacondebris","path":"sprites/spr_bacondebris/spr_bacondebris.yy",},"order":0,},
@@ -8752,6 +8751,7 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"regexp.ndll","CopyToMask":0,"filePath":"datafiles/GMLive",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"std.ndll","CopyToMask":0,"filePath":"datafiles/GMLive",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"zlib.ndll","CopyToMask":0,"filePath":"datafiles/GMLive",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"gmlive-server-alt.exe","CopyToMask":-1,"filePath":"datafiles/GMLive",},
   ],
   "MetaData": {
     "IDEVersion": "2022.0.1.31",
