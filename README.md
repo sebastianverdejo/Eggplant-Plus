@@ -1,5 +1,4 @@
 # Pizza Tower: Eggplant Plus
-- A full decompilation of Pizza Tower v1.1.0 (Noise Update), with extra stuff!
 - I am not affiliated with Tour De Pizza in any way.
 
 # Requirements
